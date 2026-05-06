@@ -213,10 +213,12 @@ export default function Navbar() {
         .mobile-menu.open {
           height: calc(100vh - var(--nav-height));
           padding: 20px;
+          overflow-y: auto;
         }
         .mobile-search {
           position: relative;
           margin-bottom: 20px;
+          flex-shrink: 0;
         }
         .mobile-search input {
           width: 100%;
@@ -230,17 +232,19 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           gap: 15px;
-          padding: 15px 0;
+          padding: 20px 0;
           font-size: 1.1rem;
           border-bottom: 1px solid var(--border-color);
           color: var(--text-primary);
+          flex-shrink: 0;
         }
         .theme-switch {
           width: 100%;
           border-bottom: none;
+          margin-bottom: 20px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           .desktop-only {
             display: none;
           }
