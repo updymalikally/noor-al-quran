@@ -87,7 +87,7 @@ export default function Quran() {
                 <div className="surah-grid">
                     {filteredSurahs.map((surah) => (
                         <Link key={surah.number} href={`/quran/${surah.number}`} className="surah-card">
-                            <div className="surah-number">{surah.number}</div>
+                            <div className="surah-number"><span>{surah.number}</span></div>
                             <div className="surah-info">
                                 <div className="surah-names">
                                     <h3>{surah.englishName}</h3>
@@ -125,7 +125,7 @@ export default function Quran() {
         .section-header p {
           color: var(--text-secondary);
         }
-        .continue-reading-card {
+        :global(.continue-reading-card) {
           background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-light-green) 100%);
           color: white;
           padding: 20px 25px;
@@ -139,37 +139,38 @@ export default function Quran() {
           transition: transform 0.2s, box-shadow 0.2s;
           text-decoration: none;
         }
-        .continue-reading-card:hover {
+        :global(.continue-reading-card:hover) {
           transform: translateY(-3px);
           box-shadow: 0 15px 25px rgba(45, 90, 39, 0.3);
         }
-        .continue-info {
+        :global(.continue-reading-card .continue-info) {
           display: flex;
           align-items: center;
           gap: 15px;
         }
-        .bookmark-icon {
+        :global(.continue-reading-card .bookmark-icon) {
           background: rgba(255, 255, 255, 0.2);
           padding: 10px;
           border-radius: 12px;
           width: 44px;
           height: 44px;
         }
-        .continue-info h3 {
+        :global(.continue-reading-card h3) {
           font-size: 0.9rem;
           opacity: 0.9;
           margin-bottom: 2px;
           font-weight: 500;
         }
-        .continue-info p {
+        :global(.continue-reading-card p) {
           font-size: 1.2rem;
           font-weight: 700;
+          margin: 0;
         }
-        .continue-arrow {
+        :global(.continue-reading-card .continue-arrow) {
           opacity: 0.8;
           transition: transform 0.2s;
         }
-        .continue-reading-card:hover .continue-arrow {
+        :global(.continue-reading-card:hover .continue-arrow) {
           transform: translateX(5px);
         }
         .search-bar-container {
@@ -221,7 +222,7 @@ export default function Quran() {
           grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
           gap: 20px;
         }
-        .surah-card {
+        :global(.surah-card) {
           background-color: var(--bg-secondary);
           padding: 20px;
           border-radius: 15px;
@@ -233,12 +234,14 @@ export default function Quran() {
           box-shadow: var(--card-shadow);
           position: relative;
           overflow: hidden;
+          text-decoration: none;
+          color: inherit;
         }
-        .surah-card:hover {
+        :global(.surah-card:hover) {
           transform: translateY(-5px);
           border-color: var(--accent-green);
         }
-        .surah-number {
+        :global(.surah-card .surah-number) {
           width: 50px;
           height: 50px;
           background-color: var(--accent-light-green);
@@ -252,12 +255,11 @@ export default function Quran() {
           flex-shrink: 0;
           transform: rotate(45deg);
         }
-        .surah-number {
-          /* Restore rotation for text */
-          perspective: 1000px;
+        :global(.surah-card .surah-number span) {
+          transform: rotate(-45deg);
+          display: inline-block;
         }
-        /* A trick to make it look like an internal diamond */
-        .surah-info {
+        :global(.surah-card .surah-info) {
           flex-grow: 1;
         }
         .surah-names {
