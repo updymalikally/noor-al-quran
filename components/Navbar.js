@@ -232,11 +232,12 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           gap: 15px;
-          padding: 20px 0;
-          font-size: 1.1rem;
+          padding: 25px 10px;
+          font-size: 1.2rem;
           border-bottom: 1px solid var(--border-color);
           color: var(--text-primary);
           flex-shrink: 0;
+          margin-bottom: 5px;
         }
         .theme-switch {
           width: 100%;
